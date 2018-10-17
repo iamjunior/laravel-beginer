@@ -30,3 +30,15 @@ Route::get('/blog', 'PostController@index');
 // }]);
 
 Route::resource('post','PostController');
+
+
+Route::get('/insert', function(){
+    // DB::insert('insert into posts(title, body, user_id) values (?,?,?)',['Belajar laravel 55','Laravel the best framework','1']);
+    $data = [
+        'title' => 'Disini Isian Title',
+        'body'  => 'Disini Untuk Isian Body',
+        'user_id'   => 2
+    ];
+    DB::table('posts')->insert($data);
+    echo "Data berhasil ditambah";
+});
