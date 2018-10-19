@@ -141,3 +141,6 @@ Route::get('/forcedelete', function(){
     //dd($posts);//jika menggunakan forceDelete langsung
     return $posts;
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
