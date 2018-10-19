@@ -1,5 +1,5 @@
 <?php
-
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +37,7 @@ Route::get('/insert', function(){
     $data = [
         'title' => 'Disini Isian Title',
         'body'  => 'Disini Untuk Isian Body',
-        'user_id'   => 4
+        'user_id'   => 6
     ];
     DB::table('posts')->insert($data);
     echo "Data berhasil ditambah";
@@ -63,4 +63,14 @@ Route::get('/delete', function(){
     // $delete = DB::delete('delete from posts where id = ?', [1]);
     $delete = DB::table('posts')->where('id',2)->delete();
     return $delete;
+});
+
+Route::get('/posts', function(){
+    $posts = Post::all();
+    return $posts;
+});
+
+Route::get('/find', function(){
+    $find = Post::find(5);
+    return $find;
 });
