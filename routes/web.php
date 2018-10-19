@@ -118,5 +118,18 @@ Route::get('/deletepost', function(){
 });
 
 Route::get('/softdelete', function(){
-    Post::destroy(9);
+    Post::destroy(10);
+});
+
+Route::get('/trash', function(){
+    //$posts = Post::withTrashed()->get();//memanggali semua data dengan data trash
+    $posts = Post::onlyTrashed()->get();//memanggali semua data dengan data trash
+    
+    return $posts;
+});
+
+Route::get('/restore', function(){
+    $posts = Post::onlyTrashed()->restore();//merestore data yang berada dalam trash
+    
+    return $posts;
 });
