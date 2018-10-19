@@ -106,3 +106,13 @@ Route::get('/updatepost', function(){
         'user_id'   => 5
         ]);
 });
+
+Route::get('/deletepost', function(){
+    // $post = Post::find(3);
+    // $post->delete();
+
+    // Post::destroy([5,6]); //bisa multiple delete dengan array
+
+    $post = Post::where('user_id',6);
+    $post->delete();
+});
