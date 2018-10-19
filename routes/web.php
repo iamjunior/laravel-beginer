@@ -116,3 +116,7 @@ Route::get('/deletepost', function(){
     $post = Post::where('user_id',6);
     $post->delete();
 });
+
+Route::get('/softdelete', function(){
+    Post::destroy(9);
+});
