@@ -118,7 +118,7 @@ Route::get('/deletepost', function(){
 });
 
 Route::get('/softdelete', function(){
-    Post::destroy(10);
+    Post::destroy([11]);
 });
 
 Route::get('/trash', function(){
@@ -131,5 +131,13 @@ Route::get('/trash', function(){
 Route::get('/restore', function(){
     $posts = Post::onlyTrashed()->restore();//merestore data yang berada dalam trash
     
+    return $posts;
+});
+
+Route::get('/forcedelete', function(){
+    // $posts = Post::find(12)->forceDelete();//menghapus data langsung tanpa melewati step softdelete
+    // $posts = Post::onlyTrashed()->where('id',9)->forceDelete();//force delete berdasarkan id yang dipilih
+    $posts = Post::onlyTrashed()->forceDelete();//force delete semua data yang sebelumnya di softdelete
+    //dd($posts);//jika menggunakan forceDelete langsung
     return $posts;
 });
