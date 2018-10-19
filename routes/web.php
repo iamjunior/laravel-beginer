@@ -96,3 +96,13 @@ Route::get('/createpost', function(){
         'user_id'   => 1 
     ]);
 });
+
+Route::get('/updatepost', function(){
+    //$post = Post::find(5);
+    $post = Post::where('id',5);
+    $post->update([
+        'title'     => 'Create data id 5 dari method create',
+        'body'      => 'Kita isi dengan id 5isian post dari create method',
+        'user_id'   => 5
+        ]);
+});
