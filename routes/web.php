@@ -48,3 +48,13 @@ Route::get('/read', function(){
     $query = DB::table('posts')->select('title','body')->where('id',1)->get();
     return var_dump($query);
 });
+
+Route::get('/update', function(){
+    //$update = DB::update('update posts set title = "Update field title" where id = ?',[1]);
+    $data = [
+        'title' => 'Isian Title',
+        'body'  => 'Isian Body baru'
+    ];
+    $update = DB::table('posts')->where('id',1)->update($data);
+    return $update;
+});
