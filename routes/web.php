@@ -74,3 +74,9 @@ Route::get('/find', function(){
     $find = Post::find(5);
     return $find;
 });
+
+Route::get('/findWhere', function(){
+    $posts = Post::where('user_id',6)->orderBy('id','asc')->take(1)->get(); //chain method
+    return $posts;
+});
+
