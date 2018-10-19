@@ -80,3 +80,11 @@ Route::get('/findWhere', function(){
     return $posts;
 });
 
+Route::get('/create', function(){
+    $post = new Post();
+    $post->title = 'Isi Judul Postingan';
+    $post->body = 'Isian body dari postingan';
+    $post->user_id = 3;
+
+    $post->save();
+});
