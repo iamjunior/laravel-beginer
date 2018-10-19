@@ -88,3 +88,11 @@ Route::get('/create', function(){
 
     $post->save();
 });
+
+Route::get('/createpost', function(){
+    $post = Post::create([
+        'title'     => 'Create data dari method create',
+        'body'      => 'Kita isi dengan isian post dari create method',
+        'user_id'   => 1 
+    ]);
+});
